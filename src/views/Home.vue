@@ -1,18 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <CreateTodo />
+    <ListTodo />
+    <UtilsTodo />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import CreateTodo from '@/components/createTodo.vue'
+import ListTodo from '@/components/listTodo.vue'
+import UtilsTodo from '@/components/utilsTodo.vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  components: {CreateTodo, ListTodo, UtilsTodo},
+  computed: {
+    todos() {
+      return this.$store.getters.todos
+    }
   }
 }
 </script>
+
+<style lang="css" scoped>
+  .container {
+    min-width: 450px;
+  }
+</style>
